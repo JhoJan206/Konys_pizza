@@ -900,12 +900,16 @@ a.pie__dato:hover { color: var(--blanco); }
   .encabezado__logo { font-size: 24px; }
   .encabezado__menu-boton { display: flex; }
 
+  /* Menú desplegable fijo: no lo recorta la franja azul ni lo tapa el contenido */
   .encabezado__nav {
     display: none;
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    z-index: 60;
+    top: 76px;
     left: 16px;
     right: 16px;
+    max-height: calc(100dvh - 92px);
+    overflow-y: auto;
     padding: 12px;
     flex-direction: column;
     align-items: stretch;

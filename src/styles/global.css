@@ -58,6 +58,13 @@ body {
   overflow-x: hidden;
 }
 
+/* Las decoraciones (franja inclinada, palabras gigantes en contorno) pueden
+   salirse del ancho de la pantalla: se recortan para que en el celular no
+   aparezca scroll horizontal. "clip" no rompe la barra fija de la carta. */
+#root {
+  overflow-x: clip;
+}
+
 h1, h2, h3, h4 {
   font-family: var(--fuente-titulos);
 }
@@ -113,6 +120,11 @@ img {
   isolation: isolate;
   overflow: hidden;
   color: var(--blanco);
+}
+
+/* Con el menú móvil abierto, la cabecera queda por encima del resto de la página */
+.zona-azul:has(.encabezado__nav--abierto) {
+  z-index: 40;
 }
 
 /* Texto grande decorativo solo con contorno */

@@ -518,6 +518,10 @@
   .solo-escritorio { display: none; }
   .lista-tarjetas { display: flex; }
 
+  /* Horarios: cada jornada ocupa su propia línea y las horas se reparten el ancho */
+  .tarjeta-item .jornada-celda { flex: 1 1 100%; min-width: 0; gap: 8px; }
+  .tarjeta-item .entrada-hora { flex: 1 1 0; width: auto; min-width: 0; padding: 0 6px; font-size: 14px; }
+
   .formulario-lateral { padding: 18px; }
   .duracion { padding: 14px; }
   .vista-previa { padding: 14px; }
