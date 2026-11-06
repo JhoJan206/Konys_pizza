@@ -175,13 +175,10 @@ export default function Inicio() {
                 <li key={h.dias}><Icono nombre="reloj" /><span><strong>{h.dias}</strong> · {h.texto}</span></li>
               ))}
             </ul>
-            <p className="visitanos__parrafo">¿Celebras algo? Separa tu mesa en línea o escríbenos por WhatsApp y te ayudamos.</p>
+            <p className="visitanos__parrafo">¿Celebras algo? Separa tu mesa en línea en un par de clics.</p>
             <div className="visitanos__acciones">
               <a className="boton boton--azul" href={NEGOCIO.mapas} target="_blank" rel="noreferrer">
                 <Icono nombre="pin" /> Cómo llegar
-              </a>
-              <a className="boton boton--contorno" href={enlaceWhatsapp(MENSAJES.reservar)} target="_blank" rel="noreferrer">
-                <Icono nombre="whatsapp" /> Reserva por WhatsApp
               </a>
             </div>
           </div>

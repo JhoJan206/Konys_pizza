@@ -1,7 +1,7 @@
 // Pie de página: dirección, horario (el configurado en el panel) y canales reales de Konys.
 import Icono from './Icono.jsx';
 import { Cono } from './Decoracion.jsx';
-import { MENSAJES, NEGOCIO, enlaceWhatsapp, useHorario } from '../utils/negocio.js';
+import { NEGOCIO, enlaceWhatsapp, useHorario } from '../utils/negocio.js';
 
 export default function PiePagina() {
   const horario = useHorario();
@@ -29,7 +29,7 @@ export default function PiePagina() {
           </div>
           <div>
             <h2 className="pie__titulo">Contacto</h2>
-            <a className="pie__dato" href={enlaceWhatsapp(MENSAJES.reservar)} target="_blank" rel="noreferrer">
+            <a className="pie__dato" href={enlaceWhatsapp()} target="_blank" rel="noreferrer">
               <Icono nombre="whatsapp" /> WhatsApp {NEGOCIO.whatsappVisible}
             </a>
             <a className="pie__dato" href={NEGOCIO.instagram} target="_blank" rel="noreferrer">

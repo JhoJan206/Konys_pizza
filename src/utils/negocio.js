@@ -19,14 +19,13 @@ export const NEGOCIO = {
 };
 
 export const MENSAJES = {
-  reservar: 'Hola, quisiera reservar!',
   detalle: 'Hola, quisiera armar un detalle personalizado 🎁',
   reserva: (numero) => `Hola, tengo la reserva N.º ${numero} y necesito hacer un cambio.`,
 };
 
-// Enlace de WhatsApp con un mensaje ya escrito
+// Enlace de WhatsApp, opcionalmente con un mensaje ya escrito
 export const enlaceWhatsapp = (mensaje) =>
-  `https://wa.me/${NEGOCIO.whatsapp}?text=${encodeURIComponent(mensaje)}`;
+  `https://wa.me/${NEGOCIO.whatsapp}${mensaje ? `?text=${encodeURIComponent(mensaje)}` : ''}`;
 
 const CORTOS = ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'];
 

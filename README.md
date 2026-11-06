@@ -8,7 +8,7 @@ Aplicación web para que los clientes de **Konys Pizza** reserven mesa en línea
 | --- | --- |
 | Local | Konys Pizza Kono · Carrera 36 #38-41, El Prado, Bucaramanga |
 | Horario | Lun a vie: 12:00 m. – 2:30 p. m. y 5:00 – 10:30 p. m. · Sáb y dom: 12:00 m. – 2:30 p. m. y 5:00 – 11:00 p. m. |
-| WhatsApp | 322 460 3184 (reservas y detalles personalizados) |
+| WhatsApp | 322 460 3184 (contacto y detalles personalizados) |
 | Domicilios | [soyclubify.com/d/konys](https://soyclubify.com/d/konys) |
 | Instagram | @konys_pizza |
 
