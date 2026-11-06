@@ -68,7 +68,30 @@ El frontend reenvía las peticiones `/api` al servidor local.
 
 Las rutas `/api/admin/*` (excepto el login) requieren el encabezado `Authorization: Bearer <token>`.
 
+## Variables de entorno
+
+| Variable | Uso |
+| --- | --- |
+| `DATABASE_URL` | Cadena de conexión a PostgreSQL de Supabase (Transaction pooler, puerto 6543) |
+| `JWT_SECRET` | Clave para firmar los tokens del panel de administración |
+| `PORT` | Puerto de la API en desarrollo (por defecto 3001) |
+
+Nunca se suben al repositorio: en local van en `.env` (ignorado por git) y en producción se configuran en Vercel.
+
+## Despliegue en Vercel
+
+1. Importar el repositorio de GitHub en Vercel (el preset Vite y las rutas se leen de `vercel.json`).
+2. En *Settings › Environment Variables* agregar `DATABASE_URL` y `JWT_SECRET`.
+3. Cada push a `main` despliega automáticamente. El frontend se sirve desde `dist/` y la API corre como función serverless desde `api/index.js`.
+
+## Seguridad
+
+- Contraseñas del panel cifradas con bcryptjs; sesiones con JWT de 8 horas.
+- Row Level Security activado en Supabase: la API pública de Supabase no puede leer ni escribir; solo el backend accede a los datos.
+- Doble protección contra reservas duplicadas: bloqueo de la mesa dentro de una transacción e índice único en la base de datos.
+
 ## Enlaces
 
-- Aplicación desplegada: _pendiente_
+- Aplicación desplegada: https://konys.vercel.app
+- Panel de administración: https://konys.vercel.app/admin
 - Video explicativo: _pendiente_
