@@ -8,6 +8,7 @@ import Icono from '../../components/Icono.jsx';
 import Enlace from '../../components/Enlace.jsx';
 import { Cono, Destello, Franja, Goteo, Sello, TituloSeccion } from '../../components/Decoracion.jsx';
 import { ZONAS, fechaCorta, hoy, hora12, pad2 } from '../../utils/formato.js';
+import { MENSAJES, NEGOCIO, enlaceWhatsapp, useHorario } from '../../utils/negocio.js';
 import ModalReserva from './ModalReserva.jsx';
 
 const PASOS = [
@@ -21,6 +22,7 @@ export default function Inicio() {
   const [error, setError] = useState('');
   const [zona, setZona] = useState('todas');
   const [mesaElegida, setMesaElegida] = useState(null);
+  const horario = useHorario();
 
   const cargarMesas = () => {
     api('/mesas')
@@ -53,20 +55,26 @@ export default function Inicio() {
 
         <section className="hero contenedor">
           <div className="hero__texto">
-            <span className="pill-direccion"><Icono nombre="pin" tam={16} /> Cra. 36 con calle 41 · Bucaramanga</span>
+            <a className="pill-direccion" href={NEGOCIO.mapas} target="_blank" rel="noreferrer">
+              <Icono nombre="pin" tam={16} /> {NEGOCIO.direccion} · Bucaramanga
+            </a>
             <h1 className="hero__titulo">
               <span className="wordmark hero__wordmark">KONYS</span>
-              <span className="eslogan hero__eslogan">· La pizza más icónica de la ciudad ·</span>
+              <span className="eslogan hero__eslogan">· {NEGOCIO.eslogan} ·</span>
             </h1>
-            <p className="hero__parrafo">Separa tu mesa en un minuto: elige la mesa, el día y la hora, y te la tenemos lista.</p>
+            <p className="hero__parrafo">{NEGOCIO.esloganLargo}. Separa tu mesa en un minuto: elige la mesa, el día y la hora, y te la tenemos lista.</p>
             <div className="hero__acciones">
               <a href="#mesas" className="boton">Reserva tu mesa <Icono nombre="flecha" grosor={2.6} /></a>
               <Enlace href="/carta" className="boton boton--claro">Ver el menú</Enlace>
+              <a href={NEGOCIO.domicilios} target="_blank" rel="noreferrer" className="boton boton--claro">Pide a domicilio</a>
             </div>
             <div className="hero__chips">
-              <div className="chip-horario"><span className="chip-horario__titulo">Almuerzo</span><span className="chip-horario__valor">12:30 – 2:30 p. m.</span></div>
-              <div className="chip-horario"><span className="chip-horario__titulo">Noche</span><span className="chip-horario__valor">5:00 – 11:00 p. m.</span></div>
-              <div className="chip-horario"><span className="chip-horario__titulo">Instagram</span><span className="chip-horario__valor">+34.900 seguidores</span></div>
+              {horario.map((h) => (
+                <div key={h.dias} className="chip-horario">
+                  <span className="chip-horario__titulo">{h.dias}</span>
+                  <span className="chip-horario__valor">{h.texto}</span>
+                </div>
+              ))}
             </div>
           </div>
           <div className="hero__visual">
@@ -152,15 +160,63 @@ export default function Inicio() {
           </div>
         </section>
 
-        <section className="contenedor">
+        <section className="seccion contenedor visitanos" aria-labelledby="titulo-visitanos">
+          <div className="visitanos__fotos">
+            <img className="visitanos__fachada" src="/img/konys/fachada.webp" alt="Fachada iluminada de Konys Pizza en El Prado, Bucaramanga" loading="lazy" />
+            <img className="visitanos__mesa" src="/img/konys/mesa-reservada.jpg" alt="Mesa de Konys reservada y decorada para un cumpleaños" loading="lazy" />
+          </div>
+          <div className="visitanos__texto">
+            <TituloSeccion fondo="EL PRADO" antetitulo="Visítanos">
+              <span id="titulo-visitanos">{NEGOCIO.local}</span>
+            </TituloSeccion>
+            <p className="visitanos__dato"><Icono nombre="pin" /> {NEGOCIO.direccion}, {NEGOCIO.ciudad}</p>
+            <ul className="visitanos__horario">
+              {horario.map((h) => (
+                <li key={h.dias}><Icono nombre="reloj" /><span><strong>{h.dias}</strong> · {h.texto}</span></li>
+              ))}
+            </ul>
+            <p className="visitanos__parrafo">¿Celebras algo? Separa tu mesa en línea o escríbenos por WhatsApp y te ayudamos.</p>
+            <div className="visitanos__acciones">
+              <a className="boton boton--azul" href={NEGOCIO.mapas} target="_blank" rel="noreferrer">
+                <Icono nombre="pin" /> Cómo llegar
+              </a>
+              <a className="boton boton--contorno" href={enlaceWhatsapp(MENSAJES.reservar)} target="_blank" rel="noreferrer">
+                <Icono nombre="whatsapp" /> Reserva por WhatsApp
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <section className="seccion contenedor">
           <div className="antojo">
             <span className="contorno antojo__fondo" aria-hidden="true">ANTOJO</span>
+            <img className="antojo__foto" src="/img/konys/kono-queso.webp" alt="" aria-hidden="true" loading="lazy" />
             <div className="antojo__texto">
               <span className="antetitulo">El menú</span>
               <h2 className="antojo__titulo">¿Ya sabes qué vas a pedir?</h2>
-              <p className="antojo__parrafo">Pizzas, entradas, postres y bebidas. Míralo antes de llegar.</p>
+              <p className="antojo__parrafo">Konys de autor, clásicas e ikónicas, entradas, granizados, sodas y postres. Míralo antes de llegar.</p>
             </div>
-            <Enlace href="/carta" className="boton boton--azul">Ver el menú <Icono nombre="flecha" grosor={2.6} /></Enlace>
+            <div className="antojo__acciones">
+              <Enlace href="/carta" className="boton boton--azul">Ver el menú <Icono nombre="flecha" grosor={2.6} /></Enlace>
+              <a href={NEGOCIO.domicilios} target="_blank" rel="noreferrer" className="boton boton--contorno">Pide a domicilio</a>
+            </div>
+          </div>
+        </section>
+
+        <section className="seccion contenedor" aria-labelledby="titulo-detalles">
+          <div className="detalles zona-azul garabatos">
+            <span className="contorno detalles__fondo" aria-hidden="true">DETALLES</span>
+            <div className="detalles__texto">
+              <span className="antetitulo detalles__antetitulo">Productos para la casa</span>
+              <h2 id="titulo-detalles" className="detalles__titulo">Congelados y detalles</h2>
+              <p className="detalles__parrafo">
+                Lleva tus konys congelados y la lasaña prelista para disfrutar en casa, o arma un detalle personalizado para sorprender a alguien.
+              </p>
+              <a className="boton" href={enlaceWhatsapp(MENSAJES.detalle)} target="_blank" rel="noreferrer">
+                <Icono nombre="whatsapp" /> Arma tu detalle
+              </a>
+            </div>
+            <img className="detalles__foto" src="/img/konys/caja-detalle.jpg" alt="Caja de regalo de Konys con konys congelados, bebida y tarjeta de cumpleaños" loading="lazy" />
           </div>
         </section>
       </main>

@@ -64,7 +64,7 @@ export function rangoHoras(inicio, fin) {
 
 // Precio en pesos colombianos
 export const precio = (valor) =>
-  valor === null || valor === undefined ? 'Por definir' : `$ ${Number(valor).toLocaleString('es-CO')}`;
+  valor === null || valor === undefined ? 'Consultar' : `$ ${Number(valor).toLocaleString('es-CO')}`;
 
 export const aMinutos = (hora) => {
   const [h, m] = hora.split(':').map(Number);

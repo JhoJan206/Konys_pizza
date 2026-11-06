@@ -13,6 +13,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "db:preparar": "node --env-file=.env server/scripts/preparar-bd.js",
+    "db:carta": "node --env-file=.env server/scripts/importar-carta.js",
     "crear-admin": "node --env-file=.env server/scripts/crear-admin.js"
   },
   "dependencies": {

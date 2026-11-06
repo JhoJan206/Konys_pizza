@@ -3,6 +3,7 @@ import Encabezado from '../../components/Encabezado.jsx';
 import Enlace from '../../components/Enlace.jsx';
 import { Cono, Sello } from '../../components/Decoracion.jsx';
 import { ZONAS, fechaLarga, rangoHoras } from '../../utils/formato.js';
+import { MENSAJES, NEGOCIO, enlaceWhatsapp } from '../../utils/negocio.js';
 
 function leerReserva() {
   try {
@@ -44,7 +45,11 @@ export default function Confirmacion() {
               <div><dt>Reserva</dt><dd>N.º {reserva.id}</dd></div>
             </dl>
             <p className="ticket__aviso">
-              Te esperamos en la Cra. 36 con calle 41, Bucaramanga. Si necesitas cambiar o cancelar, escríbenos por WhatsApp o Instagram (@konys_pizza).
+              Te esperamos en {NEGOCIO.local}, {NEGOCIO.direccion}, Bucaramanga.{' '}
+              <a href={NEGOCIO.mapas} target="_blank" rel="noreferrer">Cómo llegar</a>. Si necesitas cambiar o cancelar,{' '}
+              <a href={enlaceWhatsapp(MENSAJES.reserva(reserva.id))} target="_blank" rel="noreferrer">
+                escríbenos por WhatsApp al {NEGOCIO.whatsappVisible}
+              </a>.
             </p>
             <div className="ticket__acciones">
               <Enlace href="/" className="boton boton--azul">Volver al inicio</Enlace>

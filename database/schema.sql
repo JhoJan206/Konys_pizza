@@ -60,6 +60,12 @@ create table if not exists platos (
   creado_en    timestamptz not null default now()
 );
 
+-- Detalles de la carta real de Konys: grupo dentro de la categoría
+-- (ej. "Konys de autor", "Granizados"), foto del plato y orden en la carta
+alter table platos add column if not exists subcategoria text;
+alter table platos add column if not exists foto_url     text;
+alter table platos add column if not exists orden        integer not null default 0;
+
 -- Usuarios del panel de administración (contraseña cifrada con bcrypt)
 create table if not exists administradores (
   id             bigint generated always as identity primary key,

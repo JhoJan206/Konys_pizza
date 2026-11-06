@@ -539,3 +539,38 @@
   .acceso__formulario { padding: 28px 22px; box-shadow: 5px 5px 0 var(--azul); }
   .acceso__formulario-titulo { font-size: 24px; }
 }
+
+/* ---------- Carta: miniaturas y fotos ---------- */
+.celda-plato { display: flex; align-items: flex-start; gap: 12px; min-width: 0; }
+
+.miniatura-plato {
+  flex: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  border: 1.5px solid var(--borde);
+}
+
+.miniatura-plato--vacia {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #FDEBD9;
+  color: var(--naranja-oscuro);
+}
+
+.filtro-grupo { flex: 0 1 240px; display: flex; }
+.filtro-grupo .entrada { min-height: 44px; font-size: 14px; }
+
+.vista-previa-foto {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1.5px solid var(--borde);
+}
+
+@media (max-width: 760px) {
+  .filtro-grupo { flex-basis: 100%; }
+}

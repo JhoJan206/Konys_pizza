@@ -6,11 +6,21 @@ import Interruptor from '../../components/Interruptor.jsx';
 import { TituloSeccion } from '../../components/Decoracion.jsx';
 import { CATEGORIAS, precio } from '../../utils/formato.js';
 
-const VACIO = { id: null, nombre: '', categoria: 'pizzas', descripcion: '', precio: '', disponible: true };
+const VACIO = { id: null, nombre: '', categoria: 'pizzas', subcategoria: '', descripcion: '', precio: '', foto_url: '', disponible: true };
+
+// Descripción recortada a dos líneas en las listas del panel
+const DOS_LINEAS = { fontSize: 13, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' };
+
+function Miniatura({ p }) {
+  return p.foto_url
+    ? <img className="miniatura-plato" src={p.foto_url} alt="" loading="lazy" width="44" height="44" />
+    : <span className="miniatura-plato miniatura-plato--vacia" aria-hidden="true"><Icono nombre="carta" tam={18} /></span>;
+}
 
 export default function AdminCarta() {
   const [platos, setPlatos] = useState(null);
   const [categoria, setCategoria] = useState('todas');
+  const [grupo, setGrupo] = useState('');
   const [busqueda, setBusqueda] = useState('');
   const [formulario, setFormulario] = useState(null);
   const [borrando, setBorrando] = useState(null);
@@ -36,9 +46,13 @@ export default function AdminCarta() {
     e.preventDefault();
     setGuardando(true);
     const datos = {
-      ...formulario,
+      nombre: formulario.nombre,
+      categoria: formulario.categoria,
+      subcategoria: formulario.subcategoria || null,
       descripcion: formulario.descripcion || null,
       precio: formulario.precio === '' ? null : Number(formulario.precio),
+      foto_url: formulario.foto_url || null,
+      disponible: formulario.disponible,
     };
     try {
       if (formulario.id) await api(`/admin/platos/${formulario.id}`, { metodo: 'PUT', datos });
@@ -65,11 +79,19 @@ export default function AdminCarta() {
     }
   };
 
-  const editar = (p) => { setFormulario({ ...p, descripcion: p.descripcion ?? '', precio: p.precio ?? '' }); setMensaje(null); };
+  const editar = (p) => {
+    setFormulario({ ...p, subcategoria: p.subcategoria ?? '', descripcion: p.descripcion ?? '', precio: p.precio ?? '', foto_url: p.foto_url ?? '' });
+    setMensaje(null);
+  };
+
+  const elegirCategoria = (valor) => { setCategoria(valor); setGrupo(''); };
 
   const texto = busqueda.trim().toLowerCase();
-  const visibles = (platos ?? []).filter((p) =>
-    (categoria === 'todas' || p.categoria === categoria) && (!texto || p.nombre.toLowerCase().includes(texto)));
+  const enCategoria = (platos ?? []).filter((p) => categoria === 'todas' || p.categoria === categoria);
+  const grupos = [...new Set(enCategoria.map((p) => p.subcategoria).filter(Boolean))];
+  const todosLosGrupos = [...new Set((platos ?? []).map((p) => p.subcategoria).filter(Boolean))];
+  const visibles = enCategoria.filter((p) =>
+    (!grupo || p.subcategoria === grupo) && (!texto || p.nombre.toLowerCase().includes(texto)));
   const ocultos = platos?.filter((p) => !p.disponible).length ?? 0;
   const contar = (c) => (platos ?? []).filter((p) => c === 'todas' || p.categoria === c).length;
 
@@ -105,11 +127,20 @@ export default function AdminCarta() {
       <div className="barra-herramientas">
         <div className="selector-pastilla" role="group" aria-label="Filtrar por categoría">
           {[['todas', 'Todas'], ...Object.entries(CATEGORIAS)].map(([valor, nombre]) => (
-            <button key={valor} type="button" className="selector-pastilla__opcion" aria-pressed={categoria === valor} onClick={() => setCategoria(valor)}>
+            <button key={valor} type="button" className="selector-pastilla__opcion" aria-pressed={categoria === valor} onClick={() => elegirCategoria(valor)}>
               {nombre} {platos && <span style={{ opacity: 0.7 }}>{contar(valor)}</span>}
             </button>
           ))}
         </div>
+        {grupos.length > 1 && (
+          <label className="filtro-grupo">
+            <span className="solo-lector">Filtrar por subcategoría</span>
+            <select className="entrada" value={grupo} onChange={(e) => setGrupo(e.target.value)}>
+              <option value="">Todas las subcategorías</option>
+              {grupos.map((g) => <option key={g} value={g}>{g}</option>)}
+            </select>
+          </label>
+        )}
         <label className="buscador">
           <Icono nombre="buscar" />
           <input className="entrada" type="search" placeholder="Buscar plato" aria-label="Buscar plato" value={busqueda} onChange={(e) => setBusqueda(e.target.value)} />
@@ -130,10 +161,18 @@ export default function AdminCarta() {
                     {visibles.map((p) => (
                       <tr key={p.id} className={formulario?.id === p.id ? 'tabla__fila--seleccionada' : ''}>
                         <td>
-                          <div className="tabla__fuerte" style={{ color: p.disponible ? 'inherit' : '#5C6873' }}>{p.nombre}</div>
-                          {p.descripcion && <div className="tabla__suave" style={{ fontSize: 13 }}>{p.descripcion}</div>}
+                          <div className="celda-plato">
+                            <Miniatura p={p} />
+                            <div style={{ minWidth: 0 }}>
+                              <div className="tabla__fuerte" style={{ color: p.disponible ? 'inherit' : '#5C6873' }}>{p.nombre}</div>
+                              {p.descripcion && <div className="tabla__suave" style={DOS_LINEAS}>{p.descripcion}</div>}
+                            </div>
+                          </div>
                         </td>
-                        <td>{CATEGORIAS[p.categoria]}</td>
+                        <td>
+                          <div>{CATEGORIAS[p.categoria]}</div>
+                          {p.subcategoria && <div className="tabla__suave" style={{ fontSize: 13 }}>{p.subcategoria}</div>}
+                        </td>
                         <td className="tabla__fuerte" style={{ whiteSpace: 'nowrap' }}>{precio(p.precio)}</td>
                         <td>
                           <span className={`con-interruptor ${p.disponible ? 'con-interruptor--activo' : 'con-interruptor--inactivo'}`}>
@@ -153,9 +192,13 @@ export default function AdminCarta() {
               {visibles.map((p) => (
                 <article key={p.id} className="tarjeta tarjeta-item">
                   <div className="tarjeta-item__fila" style={{ alignItems: 'flex-start' }}>
-                    <div>
-                      <h2 className="tarjeta-item__titulo" style={{ color: p.disponible ? 'inherit' : '#5C6873' }}>{p.nombre}</h2>
-                      {p.descripcion && <p className="tabla__suave" style={{ margin: '3px 0 0', fontSize: 13 }}>{p.descripcion}</p>}
+                    <div className="celda-plato">
+                      <Miniatura p={p} />
+                      <div style={{ minWidth: 0 }}>
+                        <h2 className="tarjeta-item__titulo" style={{ color: p.disponible ? 'inherit' : '#5C6873' }}>{p.nombre}</h2>
+                        {p.subcategoria && <span className="tabla__suave" style={{ fontSize: 12 }}>{p.subcategoria}</span>}
+                        {p.descripcion && <p className="tabla__suave" style={{ margin: '3px 0 0', ...DOS_LINEAS }}>{p.descripcion}</p>}
+                      </div>
                     </div>
                     <span className="tabla__fuerte" style={{ color: 'var(--naranja-oscuro)', whiteSpace: 'nowrap' }}>{precio(p.precio)}</span>
                   </div>
@@ -188,13 +231,28 @@ export default function AdminCarta() {
                 </select>
               </label>
               <label className="campo">
-                <span>Descripción <span className="campo__opcional">(opcional)</span></span>
-                <textarea className="entrada" rows="3" maxLength={300} placeholder="Ingredientes principales" value={formulario.descripcion} onChange={(e) => setFormulario({ ...formulario, descripcion: e.target.value })} />
+                <span>Subcategoría <span className="campo__opcional">(ej. Konys de autor, Granizados)</span></span>
+                <input
+                  className="entrada" list="subcategorias" maxLength={60} value={formulario.subcategoria}
+                  onChange={(e) => setFormulario({ ...formulario, subcategoria: e.target.value })}
+                />
+                <datalist id="subcategorias">{todosLosGrupos.map((g) => <option key={g} value={g} />)}</datalist>
               </label>
               <label className="campo">
-                <span>Precio (COP) <span className="campo__opcional">(vacío = por definir)</span></span>
+                <span>Descripción <span className="campo__opcional">(opcional)</span></span>
+                <textarea className="entrada" rows="4" maxLength={800} placeholder="Ingredientes principales" value={formulario.descripcion} onChange={(e) => setFormulario({ ...formulario, descripcion: e.target.value })} />
+              </label>
+              <label className="campo">
+                <span>Precio (COP) <span className="campo__opcional">(vacío = consultar)</span></span>
                 <input className="entrada" type="number" min="0" step="100" placeholder="0" value={formulario.precio} onChange={(e) => setFormulario({ ...formulario, precio: e.target.value })} />
               </label>
+              <label className="campo">
+                <span>Foto <span className="campo__opcional">(enlace, ej. /img/carta/bukara.webp)</span></span>
+                <input className="entrada" maxLength={500} placeholder="https://… o /img/carta/…" value={formulario.foto_url} onChange={(e) => setFormulario({ ...formulario, foto_url: e.target.value })} />
+              </label>
+              {formulario.foto_url && (
+                <img className="vista-previa-foto" src={formulario.foto_url} alt={`Vista previa de la foto de ${formulario.nombre || 'el plato'}`} />
+              )}
               <div className="caja-interruptor">
                 <span className="caja-interruptor__texto">Disponible<small>Visible en la carta del cliente</small></span>
                 <Interruptor activo={formulario.disponible} etiqueta="Plato disponible" onCambio={(v) => setFormulario({ ...formulario, disponible: v })} />

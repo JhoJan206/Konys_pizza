@@ -11,7 +11,7 @@ export function Goteo() {
 }
 
 // Sello circular naranja con texto alrededor
-export function Sello({ texto = 'LA PIZZA MÁS ICÓNICA ✦ DE LA CIUDAD ✦', conCheck = false, className = '' }) {
+export function Sello({ texto = 'LA PIZZA MÁS IKÓNICA ✦ DE LA CIUDAD ✦', conCheck = false, className = '' }) {
   const id = useId();
   return (
     <svg className={`sello ${className}`} viewBox="0 0 200 200" aria-hidden="true">
@@ -42,7 +42,7 @@ export function Destello({ className = '' }) {
 
 // Franja naranja inclinada con texto corrido
 export function Franja() {
-  const texto = 'Pizza en cono ✦ La más icónica de la ciudad ✦ Bucaramanga ✦ Domicilios y eventos ✦ ';
+  const texto = 'Pizza en cono ✦ La más ikónica de la ciudad ✦ Bucaramanga ✦ Konys de autor ✦ Domicilios ✦ ';
   return (
     <div className="franja" aria-hidden="true">
       <span>{texto.repeat(3)}</span>

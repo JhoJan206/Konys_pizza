@@ -178,9 +178,9 @@ router.post('/reservas', async (req, res) => {
 router.get('/platos', async (req, res) => {
   const categorias = ['pizzas', 'entradas', 'postres', 'bebidas'];
   const { rows } = await pool.query(
-    `select id, nombre, categoria, descripcion, precio from platos
+    `select id, nombre, categoria, subcategoria, descripcion, precio, foto_url from platos
       where disponible
-      order by array_position($1::text[], categoria), nombre`,
+      order by array_position($1::text[], categoria), orden, nombre`,
     [categorias]
   );
   res.json(categorias.map((categoria) => ({

@@ -1,6 +1,18 @@
 # Konys Pizza · Sistema de reservas de mesas
 
-Aplicación web para que los clientes de **Konys Pizza** (Cra. 36 con calle 41, Bucaramanga) reserven mesa en línea viendo la disponibilidad en tiempo real, y para que el administrador gestione mesas, horarios, reservas y la carta.
+Aplicación web para que los clientes de **Konys Pizza** reserven mesa en línea viendo la disponibilidad en tiempo real, y para que el administrador gestione mesas, horarios, reservas y la carta.
+
+## Datos del negocio
+
+| | |
+| --- | --- |
+| Local | Konys Pizza Kono · Carrera 36 #38-41, El Prado, Bucaramanga |
+| Horario | Lun a vie: 12:00 m. – 2:30 p. m. y 5:00 – 10:30 p. m. · Sáb y dom: 12:00 m. – 2:30 p. m. y 5:00 – 11:00 p. m. |
+| WhatsApp | 322 460 3184 (reservas y detalles personalizados) |
+| Domicilios | [soyclubify.com/d/konys](https://soyclubify.com/d/konys) |
+| Instagram | @konys_pizza |
+
+La carta (67 platos con foto) y las imágenes del local se tomaron de los canales oficiales de Konys en Clubify el 6 de noviembre de 2026. Están en `database/carta-konys.json` y `public/img/carta/` y, después de cargarlas, se mantienen desde el panel de administración (Carta).
 
 ## Tecnologías
 
@@ -42,7 +54,8 @@ Requisitos: Node.js 20 o superior.
 ```bash
 npm install
 cp .env.example .env    # completar DATABASE_URL y JWT_SECRET
-npm run db:preparar     # crea las tablas y carga los datos iniciales en Supabase
+npm run db:preparar     # crea las tablas y carga mesas y horarios en Supabase
+npm run db:carta        # carga la carta real de Konys (reemplaza los platos actuales)
 npm run crear-admin     # crea el usuario del panel (pide la contraseña)
 npm run dev             # Web completa (frontend + API) en http://localhost:5173
 ```

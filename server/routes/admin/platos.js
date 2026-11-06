@@ -7,21 +7,23 @@ import * as validar from '../../utils/validar.js';
 const router = Router();
 
 const CATEGORIAS = ['pizzas', 'entradas', 'postres', 'bebidas'];
-const CAMPOS = 'id, nombre, categoria, descripcion, precio, disponible, creado_en';
+const CAMPOS = 'id, nombre, categoria, subcategoria, descripcion, precio, foto_url, disponible, orden, creado_en';
 
 function leerPlato(datos = {}) {
   return {
     nombre: validar.texto(datos.nombre, 'nombre', { max: 80 }),
     categoria: validar.opcion(datos.categoria, 'categoría', CATEGORIAS),
-    descripcion: validar.texto(datos.descripcion, 'descripción', { max: 300, opcional: true }),
+    subcategoria: validar.texto(datos.subcategoria, 'subcategoría', { max: 60, opcional: true }),
+    descripcion: validar.texto(datos.descripcion, 'descripción', { max: 800, opcional: true }),
     precio: validar.entero(datos.precio, 'precio', { min: 0, max: 10000000, opcional: true }),
+    foto_url: validar.texto(datos.foto_url, 'foto', { max: 500, opcional: true }),
     disponible: datos.disponible === undefined ? true : validar.booleano(datos.disponible, 'disponible'),
   };
 }
 
 router.get('/', async (req, res) => {
   const { rows } = await pool.query(
-    `select ${CAMPOS} from platos order by array_position($1::text[], categoria), nombre`,
+    `select ${CAMPOS} from platos order by array_position($1::text[], categoria), orden, nombre`,
     [CATEGORIAS]
   );
   res.json(rows);
@@ -29,10 +31,12 @@ router.get('/', async (req, res) => {
 
 router.post('/', async (req, res) => {
   const p = leerPlato(req.body);
+  // Los platos nuevos quedan al final de la carta
   const { rows: [plato] } = await pool.query(
-    `insert into platos (nombre, categoria, descripcion, precio, disponible)
-     values ($1, $2, $3, $4, $5) returning ${CAMPOS}`,
-    [p.nombre, p.categoria, p.descripcion, p.precio, p.disponible]
+    `insert into platos (nombre, categoria, subcategoria, descripcion, precio, foto_url, disponible, orden)
+     values ($1, $2, $3, $4, $5, $6, $7, (select coalesce(max(orden), 0) + 1 from platos))
+     returning ${CAMPOS}`,
+    [p.nombre, p.categoria, p.subcategoria, p.descripcion, p.precio, p.foto_url, p.disponible]
   );
   res.status(201).json(plato);
 });
@@ -41,9 +45,10 @@ router.put('/:id', async (req, res) => {
   const id = validar.id(req.params.id);
   const p = leerPlato(req.body);
   const { rows: [plato] } = await pool.query(
-    `update platos set nombre = $2, categoria = $3, descripcion = $4, precio = $5, disponible = $6
+    `update platos set nombre = $2, categoria = $3, subcategoria = $4, descripcion = $5,
+            precio = $6, foto_url = $7, disponible = $8
       where id = $1 returning ${CAMPOS}`,
-    [id, p.nombre, p.categoria, p.descripcion, p.precio, p.disponible]
+    [id, p.nombre, p.categoria, p.subcategoria, p.descripcion, p.precio, p.foto_url, p.disponible]
   );
   if (!plato) throw new ErrorHttp(404, 'El plato no existe');
   res.json(plato);

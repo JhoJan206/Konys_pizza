@@ -1,0 +1,680 @@
+{
+  "fuente": "https://soyclubify.com/d/konys (menú público de Konys en Clubify)",
+  "capturado": "2026-11-06",
+  "notas": {
+    "pizzas": "Todas nuestras konys traen papitas al horno",
+    "almuerzos": "Menú almuerzos disponible solo de 12 a 2:30 pm"
+  },
+  "platos": [
+    {
+      "nombre": "Entrada mini Konitos",
+      "categoria": "entradas",
+      "subcategoria": "Entradas",
+      "descripcion": "Cinco (5) mini Konys,\nrellenos de queso\ngratinado fundido, napolitana y 1 sabor a elegir.\n- HAWAIANOS\n- PEPERONI\n- SOLO QUESO",
+      "precio": 15000,
+      "foto": "entrada-mini-konitos.webp",
+      "recomendado": true,
+      "orden": 0
+    },
+    {
+      "nombre": "NACHOS ENCHULADOS",
+      "categoria": "entradas",
+      "subcategoria": "Entradas",
+      "descripcion": "Nachos crocantes , con queso rayado , tártara de la casa y piña caramelizada, la opción perfecta para compartir y picar una explosión de sabores.",
+      "precio": 13000,
+      "foto": "nachos-enchulados.webp",
+      "recomendado": false,
+      "orden": 1
+    },
+    {
+      "nombre": "Salchi pulpitos",
+      "categoria": "entradas",
+      "subcategoria": "Menú Infantil",
+      "descripcion": "Mini salchichas con\npapitas doradas, acompanadas\nde nuestras salsas , un\njuguito Hit y galletas Chips para\nun toque dulce.",
+      "precio": 22000,
+      "foto": "salchi-pulpitos.webp",
+      "recomendado": false,
+      "orden": 2
+    },
+    {
+      "nombre": "Chicki chicken",
+      "categoria": "entradas",
+      "subcategoria": "Menú Infantil",
+      "descripcion": "Cuatro (4) nuggets de pollo dorados\nacompanados de papas a la francesa,\nsalsa especial y un juguito Hit con\ngalletas Chips para completar la",
+      "precio": 23000,
+      "foto": "chicki-chicken.webp",
+      "recomendado": false,
+      "orden": 3
+    },
+    {
+      "nombre": "BUKARA (GANADORA PIZZA MASTER)",
+      "categoria": "pizzas",
+      "subcategoria": "Konys de autor",
+      "descripcion": "GANADORA PIZZA MASTER 2023\nUn homenaje a la ciudad Bonita, con trozos de jugosa carne de hamburguesa mermelada de tocineta ahumada en reducción de miel y panela, sobre nuestra exquisita salsa napolitana.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 29900,
+      "foto": "bukara-ganadora-pizza-master.webp",
+      "recomendado": true,
+      "orden": 4
+    },
+    {
+      "nombre": "KONYS DULCINEA (CONOPIZZA DE TEMPORADA)",
+      "categoria": "pizzas",
+      "subcategoria": "Konys de autor",
+      "descripcion": "Pollo al horno marinado, jugoso y lleno de sabor, combinado con mozzarella argentino y nuestro Cremoso de Tocineta Ahumada Caramelizada con base de queso crema Kraft, una mezcla intensa, dulce y salada que se derrite en cada mordida.\nTodo coronado con un nacho en salsa de la casa y lluvia de parmesano.\nAcompañado de papitas fritas al horno.\nUna experiencia que redefine lo que creías que era una pizza.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 29900,
+      "foto": "konys-dulcinea-conopizza-de-temporada.webp",
+      "recomendado": true,
+      "orden": 5
+    },
+    {
+      "nombre": "Colombianísima",
+      "categoria": "pizzas",
+      "subcategoria": "Konys de autor",
+      "descripcion": "PARTICIPANTE PIZZA MASTER 2022\nJugosa carne desmechada, dulces maduritos fritos y maicitos frescos, coronados con un trozo de arepa de maíz.\nAdicionales: Agranda tu cono XXL +$12.000, Adicional servicio de tártara +$1.000, Papas enchuladas +$2.000, Extra papa +$2.000.",
+      "precio": 29900,
+      "foto": "colombianisima.webp",
+      "recomendado": false,
+      "orden": 6
+    },
+    {
+      "nombre": "LASAGNA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys de autor",
+      "descripcion": "Carne molida sazonada, tocineta ahumada, y queso parmesano gratinado en una cremosa salsa blanca y napolitana.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 29900,
+      "foto": "lasagna.webp",
+      "recomendado": false,
+      "orden": 7
+    },
+    {
+      "nombre": "IKÓNICA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys de autor",
+      "descripcion": "Trozos de nuggets de pollo, jamón ahumado y queso cheddar para una combinación de texturas y sabores únicos.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 29900,
+      "foto": "ikonica.webp",
+      "recomendado": false,
+      "orden": 8
+    },
+    {
+      "nombre": "CARBONARA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys de autor",
+      "descripcion": "Tocineta Ahumada, jamón ahumado, maíz dulce y queso parmesano sobre una cremosa salsa blanca.\nAdicionales: Papas enchuladas (queso rayado,tartara y piña) +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 29900,
+      "foto": "carbonara.webp",
+      "recomendado": false,
+      "orden": 9
+    },
+    {
+      "nombre": "HAWAIANA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys clásicas",
+      "descripcion": "La combinación perfecta de tocineta y jamón ahumados, piña OroMiel para un equilibrio de dulce y salado.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 27900,
+      "foto": "hawaiana.webp",
+      "recomendado": false,
+      "orden": 10
+    },
+    {
+      "nombre": "MEXICANA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys clásicas",
+      "descripcion": "Deliciosa carne molida sazonada, maíz tierno, pimentón y cebolla caramelizada, coronada con crujientes nachos con un toque de picante Tex-Mex.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 27900,
+      "foto": "mexicana.webp",
+      "recomendado": false,
+      "orden": 11
+    },
+    {
+      "nombre": "CHICKEN",
+      "categoria": "pizzas",
+      "subcategoria": "Konys clásicas",
+      "descripcion": "Trozos de pollo horneado y maíz tierno que resaltan el sabor de nuestra clásica salsa napolitana.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 27900,
+      "foto": "chicken.webp",
+      "recomendado": false,
+      "orden": 12
+    },
+    {
+      "nombre": "VEGGIE",
+      "categoria": "pizzas",
+      "subcategoria": "Konys clásicas",
+      "descripcion": "Champiñones frescos, maíz tierno, cebolla caramelizada y queso parmesano, creando una opción llena de sabor y textura.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 27900,
+      "foto": "veggie.webp",
+      "recomendado": false,
+      "orden": 13
+    },
+    {
+      "nombre": "BBQ",
+      "categoria": "pizzas",
+      "subcategoria": "Konys clásicas",
+      "descripcion": "Pollo en salsa BBQ con un toque ranchero y cebolla caramelizada que potencia su dulzura natural.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 27900,
+      "foto": "bbq.webp",
+      "recomendado": false,
+      "orden": 14
+    },
+    {
+      "nombre": "TERIYORK",
+      "categoria": "pizzas",
+      "subcategoria": "Konys clásicas",
+      "descripcion": "Pollo jugoso, carne molida sazonada, cebolla caramelizada y pimentón fresco para una explosión de sabor.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 27900,
+      "foto": "teriyork.webp",
+      "recomendado": false,
+      "orden": 15
+    },
+    {
+      "nombre": "ESPECIAL",
+      "categoria": "pizzas",
+      "subcategoria": "Konys icónicas",
+      "descripcion": "Mezcla irresistible de pollo jugoso marinado, tocineta ahumada y champiñones frescos en nuestra salsa napolitana.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 29900,
+      "foto": "especial.webp",
+      "recomendado": false,
+      "orden": 16
+    },
+    {
+      "nombre": "CARNES- Autentica PEPPERONI",
+      "categoria": "pizzas",
+      "subcategoria": "Konys icónicas",
+      "descripcion": "Pepperoni picante, cábano y jamón ahumado, una combinación perfecta para los amantes de la proteína.\nAdicionales: Papas enchuladas +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000, Extra papa +$2.000.",
+      "precio": 29900,
+      "foto": "carnes-autentica-pepperoni.webp",
+      "recomendado": false,
+      "orden": 17
+    },
+    {
+      "nombre": "MAR & TIERRA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys icónicas",
+      "descripcion": "Exquisita mezcla de camarones jugosos, pollo marinado, pimentón fresco y maíz tierno.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 30900,
+      "foto": "mar-tierra.webp",
+      "recomendado": false,
+      "orden": 18
+    },
+    {
+      "nombre": "MARINERA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys icónicas",
+      "descripcion": "Camarón fresco, pulpo tierno y palmito en nuestra exclusiva salsa especial de la casa.\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 30900,
+      "foto": "marinera.webp",
+      "recomendado": false,
+      "orden": 19
+    },
+    {
+      "nombre": "ITALIANISIMA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys icónicas",
+      "descripcion": "amón serrano madurado, tomates asados\ny un toque de salsa pesto, coronada con\ncon un toque final de queso parmesano.",
+      "precio": 31900,
+      "foto": "italianisima.webp",
+      "recomendado": false,
+      "orden": 20
+    },
+    {
+      "nombre": "BONDIOLA",
+      "categoria": "pizzas",
+      "subcategoria": "Konys icónicas",
+      "descripcion": "Corte premium de bondiola de cerdo ahumada, combinada con champiñones frescos y queso parmesano, sobre nuestra inigualable salsa napolitana.\nAdicionales: Extra papa +$2.000, Adicional servicio de tártara +$1.000, Papas enchuladas +$2.000, Agranda tu cono XXL +$12.000.",
+      "precio": 31900,
+      "foto": "bondiola.webp",
+      "recomendado": false,
+      "orden": 21
+    },
+    {
+      "nombre": "COMBO AMIGOS X4",
+      "categoria": "pizzas",
+      "subcategoria": "Combos icónicos",
+      "descripcion": "- Cuatro (4) Konys Pizza de sabores seleccionados (Solo sabores CLASICOS DE $27.900 )\n- Papas fritas al horno (400gr)\n- Cuatro granizadas en dos sabores tradicionales\nAdicionales: Papas enchuladas +$2.000, Extra papa +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000.",
+      "precio": 142000,
+      "foto": "combo-amigos-x4.webp",
+      "recomendado": false,
+      "orden": 22
+    },
+    {
+      "nombre": "COMBO PARCHE X6",
+      "categoria": "pizzas",
+      "subcategoria": "Combos icónicos",
+      "descripcion": "- Seis (6) Konys Pizza de\nsabores seleccionados Solo sabores CLASICOS DE $27.900\n- Papas fritas al horno (600 gr)\n- Seis granizadas en tres sabores tradicionales\nAdicionales: Papas enchuladas +$2.000, Adicional servicio de tártara +$1.000, Agranda tu cono XXL +$12.000, Extra papa +$2.000.",
+      "precio": 210000,
+      "foto": "combo-parche-x6.webp",
+      "recomendado": false,
+      "orden": 23
+    },
+    {
+      "nombre": "DESGRANADO DE CARNE",
+      "categoria": "entradas",
+      "subcategoria": "Desgranados",
+      "descripcion": "Desgranado al horno servido en Kono en masa crocante, relleno de mazorca bogotana, salteado con carne desmechada, chorizo santarosano, salsita Konys y queso mozzarella, acompañado de una porción de papas fritas al horno",
+      "precio": 38500,
+      "foto": "desgranado-de-carne.webp",
+      "recomendado": true,
+      "orden": 24
+    },
+    {
+      "nombre": "DESGRANADO POLLO",
+      "categoria": "entradas",
+      "subcategoria": "Desgranados",
+      "descripcion": "Desgranado al horno servido en Kono en masa crocante, relleno de mazorca bogotana, salteado con pollo en cuadritos, tocineta ahumada, salsita Konys y queso mozzarella, acompañado de una porción de papas fritas al horno.",
+      "precio": 37500,
+      "foto": "desgranado-pollo.webp",
+      "recomendado": false,
+      "orden": 25
+    },
+    {
+      "nombre": "PAPAS LOCAS - Fries ikonicas",
+      "categoria": "entradas",
+      "subcategoria": "Papas Ikónicas",
+      "descripcion": "UNICAS PAPAS LOCAS FRITAS SIN ACEITE DE LA CIUDAD.\nPapa francesa al horno, cubiertas con chorizo\nsantarosano, salchicha llanera, trozos de carne\nde hamburguesa, lechuga fresca, maicitos,\nsalsa tártara, salsa de pina y queso RAYADO.\n¡Una explosión de sabor en cada bocado!",
+      "precio": 39000,
+      "foto": "papas-locas-fries-ikonicas.webp",
+      "recomendado": false,
+      "orden": 26
+    },
+    {
+      "nombre": "Chicken fries mini",
+      "categoria": "entradas",
+      "subcategoria": "Antojitos mini",
+      "descripcion": "Papas fritas al horno sin aceite, nuggets de pollo (echos en konys) bañadas en queso mozarrella derretido y salsas de la casa (tartara y pina)",
+      "precio": 22000,
+      "foto": "chicken-fries-mini.webp",
+      "recomendado": false,
+      "orden": 27
+    },
+    {
+      "nombre": "Chorifries Mini",
+      "categoria": "entradas",
+      "subcategoria": "Antojitos mini",
+      "descripcion": "Papas fritas al horno sin aceite, chorizo de cerdo artesanal, quesito costeño y salsas de la casa (tartara y piña)",
+      "precio": 22000,
+      "foto": "chorifries-mini.webp",
+      "recomendado": false,
+      "orden": 28
+    },
+    {
+      "nombre": "Salchifries Mini",
+      "categoria": "entradas",
+      "subcategoria": "Antojitos mini",
+      "descripcion": "Papas fritas al horno sin aceite, salchichas horneadas, quesito costeño, y salsas de la casa (tartara y piña)",
+      "precio": 22000,
+      "foto": "salchifries-mini.webp",
+      "recomendado": false,
+      "orden": 29
+    },
+    {
+      "nombre": "PORCION DE PAPAS",
+      "categoria": "entradas",
+      "subcategoria": "Antojitos mini",
+      "descripcion": "Porcion de 200 gramos de Papitas fritas sin aceite.",
+      "precio": 7900,
+      "foto": "porcion-de-papas.webp",
+      "recomendado": false,
+      "orden": 30
+    },
+    {
+      "nombre": "LASAÑA (Sabor del día)",
+      "categoria": "entradas",
+      "subcategoria": "Lasaña",
+      "descripcion": "Acompañada de deliciosas papas fritas sin aceite + Salsa de la casa",
+      "precio": 31800,
+      "foto": "lasana-sabor-del-dia.webp",
+      "recomendado": false,
+      "orden": 31
+    },
+    {
+      "nombre": "Limón",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 9900,
+      "foto": "limon.webp",
+      "recomendado": false,
+      "orden": 32
+    },
+    {
+      "nombre": "Naranja",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 9900,
+      "foto": "naranja.webp",
+      "recomendado": false,
+      "orden": 33
+    },
+    {
+      "nombre": "Mandarina",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 9900,
+      "foto": "mandarina.webp",
+      "recomendado": false,
+      "orden": 34
+    },
+    {
+      "nombre": "YerbaBuena",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 9900,
+      "foto": "yerbabuena.webp",
+      "recomendado": false,
+      "orden": 35
+    },
+    {
+      "nombre": "MaracuMango",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 9900,
+      "foto": "maracumango.webp",
+      "recomendado": true,
+      "orden": 36
+    },
+    {
+      "nombre": "Cerezada",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 12990,
+      "foto": "cerezada.webp",
+      "recomendado": false,
+      "orden": 37
+    },
+    {
+      "nombre": "Piña Colada",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 12990,
+      "foto": "pina-colada.webp",
+      "recomendado": false,
+      "orden": 38
+    },
+    {
+      "nombre": "Limonada de Coco",
+      "categoria": "bebidas",
+      "subcategoria": "Granizados",
+      "descripcion": "Adicionales: Agrandar bebida +$1.000.",
+      "precio": 12990,
+      "foto": "limonada-de-coco.webp",
+      "recomendado": false,
+      "orden": 39
+    },
+    {
+      "nombre": "SODA LULO FIZZ",
+      "categoria": "bebidas",
+      "subcategoria": "Sodas",
+      "descripcion": "Mermelada de Lulo, limón, soda, perlas explosivas de maracuyá y ginger ale macerados. Una bebida refrescante y deliciosa para acompañar tu experiencia ikonica.",
+      "precio": 12900,
+      "foto": "soda-lulo-fizz.webp",
+      "recomendado": false,
+      "orden": 40
+    },
+    {
+      "nombre": "SODA ARANDANOS",
+      "categoria": "bebidas",
+      "subcategoria": "Sodas",
+      "descripcion": "Sirope natural de Arandanos, arandanos frescos, limón, soda, perlas explosivas de cereza. Una bebida refrescante y deliciosa para acompañar tu experiencia ikonica.",
+      "precio": 12900,
+      "foto": "soda-arandanos.webp",
+      "recomendado": false,
+      "orden": 41
+    },
+    {
+      "nombre": "SODA FRUTOS ROJOS",
+      "categoria": "bebidas",
+      "subcategoria": "Sodas",
+      "descripcion": "Sirope natural de frutos rojos, fresa picada, limón, soda, y perlas explosivas de cereza. Una bebida refrescante y deliciosa para acompañar tu experiencia ikonica.",
+      "precio": 12900,
+      "foto": "soda-frutos-rojos.webp",
+      "recomendado": true,
+      "orden": 42
+    },
+    {
+      "nombre": "SODA MARACUYÁ",
+      "categoria": "bebidas",
+      "subcategoria": "Sodas",
+      "descripcion": "Sirope natural de maracuyá, limón, soda, perlas explosivas de maracuyá. Una bebida refrescante y deliciosa para acompañar tu experiencia ikonica.",
+      "precio": 12900,
+      "foto": "soda-maracuya.webp",
+      "recomendado": false,
+      "orden": 43
+    },
+    {
+      "nombre": "Limonada de Panela",
+      "categoria": "bebidas",
+      "subcategoria": "Bebidas Frías",
+      "descripcion": "Deliciosa limonada de panela natural , una bebida Refrescante y perfecta.\nAdicionales: Agrandar limonada +$1.000.",
+      "precio": 7000,
+      "foto": "limonada-de-panela.webp",
+      "recomendado": false,
+      "orden": 44
+    },
+    {
+      "nombre": "Postobon 400ml",
+      "categoria": "bebidas",
+      "subcategoria": "Bebidas Frías",
+      "descripcion": null,
+      "precio": 6000,
+      "foto": "postobon-400ml.webp",
+      "recomendado": false,
+      "orden": 45
+    },
+    {
+      "nombre": "Coca-Cola 400ml (pidela original o ZERO )",
+      "categoria": "bebidas",
+      "subcategoria": "Bebidas Frías",
+      "descripcion": "Opciones: COCACOLA ZERO.",
+      "precio": 6000,
+      "foto": "coca-cola-400ml-pidela-original-o-zero.webp",
+      "recomendado": false,
+      "orden": 46
+    },
+    {
+      "nombre": "Jugo Hit 500ml",
+      "categoria": "bebidas",
+      "subcategoria": "Bebidas Frías",
+      "descripcion": null,
+      "precio": 6000,
+      "foto": "jugo-hit-500ml.webp",
+      "recomendado": false,
+      "orden": 47
+    },
+    {
+      "nombre": "Soda",
+      "categoria": "bebidas",
+      "subcategoria": "Bebidas Frías",
+      "descripcion": "Adicionales: Michelar frutos rojos +$6.900, Michelar limón y sal +$2.500, ZUMO DE LIMÓN +$2.000.",
+      "precio": 6000,
+      "foto": "soda.webp",
+      "recomendado": false,
+      "orden": 48
+    },
+    {
+      "nombre": "Agua (con Gas / sin Gas)",
+      "categoria": "bebidas",
+      "subcategoria": "Bebidas Frías",
+      "descripcion": null,
+      "precio": 6000,
+      "foto": "agua-con-gas-sin-gas.webp",
+      "recomendado": false,
+      "orden": 49
+    },
+    {
+      "nombre": "Club Colombia Dorada",
+      "categoria": "bebidas",
+      "subcategoria": "Cerveza",
+      "descripcion": "Adicionales: Michelar limón y sal +$2.500, Michelar frutos rojos +$5.000.",
+      "precio": 7000,
+      "foto": "club-colombia-dorada.webp",
+      "recomendado": false,
+      "orden": 50
+    },
+    {
+      "nombre": "Corona 330ml",
+      "categoria": "bebidas",
+      "subcategoria": "Cerveza",
+      "descripcion": "Adicionales: Michelar limón y sal +$2.500, Michelar frutos rojos +$5.000.",
+      "precio": 9000,
+      "foto": "corona-330ml.webp",
+      "recomendado": false,
+      "orden": 51
+    },
+    {
+      "nombre": "3 Cordilleras Rosada",
+      "categoria": "bebidas",
+      "subcategoria": "Cerveza",
+      "descripcion": "Adicionales: Michelar limón y sal +$2.500, Michelar frutos rojos +$5.000.",
+      "precio": 9000,
+      "foto": "3-cordilleras-rosada.webp",
+      "recomendado": false,
+      "orden": 52
+    },
+    {
+      "nombre": "Stella Artois",
+      "categoria": "bebidas",
+      "subcategoria": "Cerveza",
+      "descripcion": "Adicionales: Michelar limón y sal +$2.500, Michelar frutos rojos +$5.000.",
+      "precio": 9000,
+      "foto": "stella-artois.webp",
+      "recomendado": false,
+      "orden": 53
+    },
+    {
+      "nombre": "Piña colada",
+      "categoria": "bebidas",
+      "subcategoria": "Cocteles cremosos",
+      "descripcion": "Cremoso cóctel a base de piña, helado de coco ,coco ,ron Havana",
+      "precio": 35000,
+      "foto": "pina-colada-2.webp",
+      "recomendado": false,
+      "orden": 54
+    },
+    {
+      "nombre": "MARACUMIX",
+      "categoria": "bebidas",
+      "subcategoria": "Cocteles cremosos",
+      "descripcion": "Cremosa PULPA MARACUMANGO, acompañado de lechera, zumo Limón, ron Havana, rodeado de borde de Tajín.",
+      "precio": 35000,
+      "foto": "maracumix.webp",
+      "recomendado": false,
+      "orden": 55
+    },
+    {
+      "nombre": "Daiquiri de fresa",
+      "categoria": "bebidas",
+      "subcategoria": "Cocteles cremosos",
+      "descripcion": "Cremosa mezcla con Fresa natural y frutos rojos ,zumo de limón, base cremosa , ron Havana.",
+      "precio": 35000,
+      "foto": "daiquiri-de-fresa.webp",
+      "recomendado": false,
+      "orden": 56
+    },
+    {
+      "nombre": "PALOMA",
+      "categoria": "bebidas",
+      "subcategoria": "Cocteles clásicos",
+      "descripcion": "cóctel refrescante a base de tequila olmeca, zumo de limón, soda ginger , michelada con sal y Tajín para potenciar sabores.",
+      "precio": 38000,
+      "foto": "paloma.webp",
+      "recomendado": false,
+      "orden": 57
+    },
+    {
+      "nombre": "MARGARITA LIMÓN",
+      "categoria": "bebidas",
+      "subcategoria": "Cocteles clásicos",
+      "descripcion": "Tequila\nOlmeca Reposado syrup simple,\nzumo de limón , michelada\ncon sal y tajin.",
+      "precio": 38000,
+      "foto": "margarita-limon.webp",
+      "recomendado": false,
+      "orden": 58
+    },
+    {
+      "nombre": "IKONIC MOJITO",
+      "categoria": "bebidas",
+      "subcategoria": "Cocteles clásicos",
+      "descripcion": "Todo un clásico, Ron havana 3 años, zumo de limón, hierbabuena fresca, top de soda",
+      "precio": 35000,
+      "foto": "ikonic-mojito.webp",
+      "recomendado": false,
+      "orden": 59
+    },
+    {
+      "nombre": "COPA HELADO CLÁSICA",
+      "categoria": "postres",
+      "subcategoria": "Postres",
+      "descripcion": "helado de sabor cookie and cream ,acompañado de fresa , con topping de lechera , salsa chocolate y maní",
+      "precio": 4900,
+      "foto": "copa-helado-clasica.webp",
+      "recomendado": false,
+      "orden": 60
+    },
+    {
+      "nombre": "COPA HELADO IKONICA",
+      "categoria": "postres",
+      "subcategoria": "Postres",
+      "descripcion": "doble bolita de helado de sabor cookie and cream ,acompañado de fresa , con topping de lechera , salsa chocolate y maní",
+      "precio": 7900,
+      "foto": "copa-helado-ikonica.webp",
+      "recomendado": false,
+      "orden": 61
+    },
+    {
+      "nombre": "LASAÑA DE CARNE",
+      "categoria": "entradas",
+      "subcategoria": "Menú Almuerzos",
+      "descripcion": "Carne molida, napolitana, queso mozzarella argentino, bechamel, parmesano y pasta\nAdicionales: Adicionar limonada 250 ml +$2.500.",
+      "precio": 22990,
+      "foto": "lasana-de-carne.webp",
+      "recomendado": false,
+      "orden": 62
+    },
+    {
+      "nombre": "LASAÑA MIXTA",
+      "categoria": "entradas",
+      "subcategoria": "Menú Almuerzos",
+      "descripcion": "Carne, pollo horneado marinado, queso mozzarella argentino, parmesano, salsa bechamel y pasta\nAdicionales: Adicionar limonada 250 ml +$2.500.",
+      "precio": 22990,
+      "foto": "lasana-mixta.webp",
+      "recomendado": false,
+      "orden": 63
+    },
+    {
+      "nombre": "LASAÑA DE MADURO",
+      "categoria": "entradas",
+      "subcategoria": "Menú Almuerzos",
+      "descripcion": "Carne, queso mozzarella argentino, béchamel, parmesano y capas de delicioso maduro asado\n(Solo disponible días en especial o por encargos)\nAdicionales: Adicionar limonada 250 ml +$2.498.",
+      "precio": 23990,
+      "foto": "lasana-de-maduro.webp",
+      "recomendado": false,
+      "orden": 64
+    },
+    {
+      "nombre": "LASAÑA PRELISTA",
+      "categoria": "entradas",
+      "subcategoria": "Congelados",
+      "descripcion": "Deliciosa lasaña prelista para hornear 15 minutos, se entrega en recipiente y refrigerada o congelada según como las desee el cliente\n“puedes guardarla en el congelador y prepararla cuando quieras”",
+      "precio": 18000,
+      "foto": "lasana-prelista.webp",
+      "recomendado": false,
+      "orden": 65
+    },
+    {
+      "nombre": "CONO CONGELADO",
+      "categoria": "entradas",
+      "subcategoria": "Congelados",
+      "descripcion": "Pide los conos rellenos según el sabor que desees y te los vendemos empacados al vacío (congelados o refrigerados) para que puedas hornearlos en casa todas las veces que desees , se vende a partir de 6 unidades.",
+      "precio": null,
+      "foto": "cono-congelado.webp",
+      "recomendado": false,
+      "orden": 66
+    }
+  ]
+}
