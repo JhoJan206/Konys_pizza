@@ -21,8 +21,16 @@ export async function api(ruta, { metodo = 'GET', datos } = {}) {
   });
 
   const cuerpo = await respuesta.json().catch(() => ({}));
+  // Sesión de administrador vencida: se cierra y se vuelve al login
+  if (respuesta.status === 401 && token) {
+    sesion.cerrar();
+    window.location.assign('/admin');
+  }
   if (!respuesta.ok) {
-    const error = new Error(cuerpo.error || 'No se pudo completar la acción');
+    const porDefecto = respuesta.status >= 500
+      ? 'No pudimos conectar con el servidor. Intenta de nuevo en un momento.'
+      : 'No se pudo completar la acción';
+    const error = new Error(cuerpo.error || porDefecto);
     error.status = respuesta.status;
     throw error;
   }

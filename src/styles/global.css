@@ -7,21 +7,28 @@
   /* Colores de marca */
   --azul: #0E3A45;          /* azul petróleo del logo */
   --naranja: #F28C28;       /* acento del logo */
+  --naranja-claro: #F7B26B;
   --naranja-oscuro: #B35A08;
+  --naranja-fondo: #FFF4E8;
   --crema: #FAF7F2;         /* fondo del sitio */
   --gris-panel: #F4F5F6;    /* fondo del panel admin */
   --blanco: #FFFFFF;
   --texto-suave: #4F6271;
   --texto-claro: #C9D6DF;
+  --texto-tenue: #8FA6B5;
   --borde: #E3E6E9;
+  --borde-calido: #D9D5CE;
 
   /* Estados */
   --libre: #1B6B43;
+  --libre-punto: #22A05B;
   --libre-fondo: #E3F4EA;
   --ocupado: #4A5763;
-  --ocupado-fondo: #ECEEF1;
+  --ocupado-fondo: #E3E6EA;
   --error: #B42318;
   --error-fondo: #FDECEA;
+  --completada: #2F4A5E;
+  --completada-fondo: #E8EEF3;
 
   /* Tipografía */
   --fuente-titulos: 'Rubik', system-ui, sans-serif;
@@ -38,12 +45,17 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   background: var(--crema);
   color: var(--azul);
   font-family: var(--fuente-texto);
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 h1, h2, h3, h4 {
@@ -59,15 +71,34 @@ input,
 select,
 textarea {
   font: inherit;
+  color: inherit;
 }
 
 button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: not-allowed;
+}
+
 img {
   max-width: 100%;
 }
+
+:focus-visible {
+  outline: 3px solid var(--naranja);
+  outline-offset: 2px;
+}
+
+.contenedor {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding-inline: 32px;
+}
+
+/* ---------- Recursos de marca ---------- */
 
 /* Patrón de garabatos para las zonas azul petróleo */
 .garabatos {
@@ -76,16 +107,70 @@ img {
   background-size: 340px 340px;
 }
 
+/* Zona azul con decoración detrás del contenido */
+.zona-azul {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: var(--blanco);
+}
+
 /* Texto grande decorativo solo con contorno */
 .contorno {
   color: transparent;
   font-family: var(--fuente-titulos);
   font-weight: 900;
   line-height: 1;
+  letter-spacing: 0.02em;
   white-space: nowrap;
   -webkit-text-stroke: 2px rgba(242, 140, 40, 0.6);
   pointer-events: none;
   user-select: none;
+}
+
+.destello {
+  position: absolute;
+  z-index: -1;
+  color: transparent;
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  -webkit-text-stroke: 1.5px rgba(242, 140, 40, 0.6);
+  pointer-events: none;
+}
+
+.cono {
+  position: absolute;
+  pointer-events: none;
+}
+
+.sello {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* Borde de queso derretido bajo las zonas azules */
+.goteo {
+  display: block;
+  width: 100%;
+  height: 56px;
+  margin-top: -1px;
+  fill: var(--azul);
+}
+
+/* Franja naranja inclinada con texto corrido */
+.franja {
+  margin: 20px -40px 0;
+  padding: 14px 0;
+  transform: rotate(-1.6deg);
+  overflow: hidden;
+  white-space: nowrap;
+  background: var(--naranja);
+  color: var(--azul);
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  font-size: 26px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 /* Wordmark KONYS */
@@ -97,14 +182,65 @@ img {
   text-decoration: none;
 }
 
-/* Botón principal naranja con "escalón" */
+.eslogan {
+  margin: 0;
+  font-family: var(--fuente-titulos);
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.antetitulo {
+  font-family: var(--fuente-titulos);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--naranja-oscuro);
+}
+
+/* Título con palabra gigante en contorno detrás */
+.titulo-seccion {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.titulo-seccion__fondo {
+  position: absolute;
+  z-index: -1;
+  left: -6px;
+  top: -42px;
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  font-size: 120px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(14, 58, 69, 0.12);
+  pointer-events: none;
+  user-select: none;
+}
+
+.titulo-seccion__texto {
+  margin: 0;
+  font-weight: 800;
+  font-size: 44px;
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Botones ---------- */
+
 .boton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  min-height: 48px;
-  padding: 0 24px;
+  min-height: 52px;
+  padding: 0 26px;
   border: none;
   border-radius: var(--radio);
   background: var(--naranja);
@@ -114,6 +250,200 @@ img {
   font-size: 17px;
   text-decoration: none;
   box-shadow: 0 5px 0 var(--naranja-oscuro);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.boton:hover {
+  color: var(--azul);
+  transform: translateY(1px);
+  box-shadow: 0 4px 0 var(--naranja-oscuro);
+}
+
+.boton:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 var(--naranja-oscuro);
+}
+
+.boton:disabled {
+  opacity: 0.6;
+  transform: none;
+}
+
+.boton--azul {
+  background: var(--azul);
+  color: var(--blanco);
+  box-shadow: none;
+}
+
+.boton--azul:hover {
+  color: var(--blanco);
+  background: #155061;
+  box-shadow: none;
+}
+
+.boton--claro {
+  background: transparent;
+  color: var(--blanco);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  box-shadow: none;
+}
+
+.boton--claro:hover {
+  color: var(--blanco);
+  border-color: var(--blanco);
+  box-shadow: none;
+}
+
+.boton--contorno {
+  background: var(--blanco);
+  color: var(--azul);
+  border: 2px solid var(--azul);
+  box-shadow: none;
+}
+
+.boton--contorno:hover {
+  background: var(--crema);
+  box-shadow: none;
+}
+
+.boton--pequeno {
+  min-height: 42px;
+  padding: 0 18px;
+  font-size: 15px;
+  box-shadow: 0 3px 0 var(--naranja-oscuro);
+}
+
+.boton--bloque {
+  width: 100%;
+}
+
+/* ---------- Estados y mensajes ---------- */
+
+.estado {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.estado::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.estado--libre { background: var(--libre-fondo); color: var(--libre); }
+.estado--ocupada { background: var(--ocupado-fondo); color: var(--ocupado); }
+
+.alerta {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--error-fondo);
+  color: var(--error);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.45;
+}
+
+.alerta svg { flex: none; margin-top: 1px; }
+
+.alerta--ok {
+  background: var(--libre-fondo);
+  color: var(--libre);
+}
+
+.cargando {
+  padding: 32px;
+  text-align: center;
+  color: var(--texto-suave);
+}
+
+/* ---------- Formularios ---------- */
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.campo__opcional {
+  font-weight: 500;
+  color: var(--texto-suave);
+}
+
+.entrada {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--borde-calido);
+  border-radius: 10px;
+  background: var(--blanco);
+  color: var(--azul);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+textarea.entrada {
+  padding: 12px 14px;
+  line-height: 1.5;
+  resize: vertical;
+}
+
+.entrada:focus {
+  border-color: var(--azul);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(242, 140, 40, 0.35);
+}
+
+.entrada[aria-invalid='true'] {
+  border-color: var(--error);
+}
+
+.texto-error {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--error);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Interruptor (switch) */
+.interruptor {
+  flex: none;
+  width: 44px;
+  height: 26px;
+  padding: 3px;
+  border: none;
+  border-radius: 999px;
+  background: #C3C9CF;
+  display: flex;
+  justify-content: flex-start;
+  transition: background 0.15s;
+}
+
+.interruptor--activo {
+  background: var(--libre);
+  justify-content: flex-end;
+}
+
+.interruptor__perilla {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: var(--blanco);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 /* Solo para lectores de pantalla */
@@ -124,4 +454,13 @@ img {
   overflow: hidden;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .contenedor { padding-inline: 16px; }
+  .goteo { height: 34px; }
+  .franja { font-size: 18px; padding: 10px 0; margin-top: 14px; transform: rotate(-2deg); }
+  .titulo-seccion__fondo { font-size: 70px; top: -26px; left: -4px; }
+  .titulo-seccion__texto { font-size: 28px; }
+  .antetitulo { font-size: 12px; letter-spacing: 0.2em; }
 }
