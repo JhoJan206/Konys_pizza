@@ -42,11 +42,31 @@ Requisitos: Node.js 20 o superior.
 ```bash
 npm install
 cp .env.example .env    # completar DATABASE_URL y JWT_SECRET
+npm run db:preparar     # crea las tablas y carga los datos iniciales en Supabase
+npm run crear-admin     # crea el usuario del panel (pide la contraseña)
 npm run dev:api         # API en http://localhost:3001
 npm run dev             # Frontend en http://localhost:5173
 ```
 
 El frontend reenvía las peticiones `/api` al servidor local.
+
+## API
+
+| Método | Ruta | Descripción |
+| --- | --- | --- |
+| GET | `/api/salud` | Estado de la API y de la base de datos |
+| GET | `/api/mesas` | Mesas activas con su estado actual |
+| GET | `/api/horarios` | Días y jornadas de atención |
+| GET | `/api/mesas/:id/disponibilidad?fecha=AAAA-MM-DD` | Bloques libres, ocupados y pasados |
+| POST | `/api/reservas` | Crea una reserva (evita la doble reserva) |
+| GET | `/api/platos` | Carta por categorías |
+| POST | `/api/admin/login` | Inicio de sesión del administrador (JWT) |
+| GET/POST/PUT/PATCH/DELETE | `/api/admin/mesas` | Gestión de mesas |
+| GET/PUT | `/api/admin/horarios` | Gestión de horarios |
+| GET/PATCH | `/api/admin/reservas` | Consulta con filtros y cambio de estado |
+| GET/POST/PUT/PATCH/DELETE | `/api/admin/platos` | Gestión de la carta |
+
+Las rutas `/api/admin/*` (excepto el login) requieren el encabezado `Authorization: Bearer <token>`.
 
 ## Enlaces
 

@@ -17,8 +17,11 @@ app.use('/api', (req, res) => {
 
 // Manejo central de errores (Express 5 captura también los errores de funciones async)
 app.use((err, req, res, next) => {
-  console.error(err);
+  // JSON mal formado en el cuerpo de la petición
+  if (err.type === 'entity.parse.failed') err.message = 'El cuerpo de la petición no es JSON válido';
   const estado = err.status || 500;
+  // Los errores de validación (4xx) son esperados; solo se registran los del servidor
+  if (estado >= 500) console.error(err);
   res.status(estado).json({ error: estado === 500 ? 'Error interno del servidor' : err.message });
 });
 

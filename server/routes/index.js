@@ -1,7 +1,8 @@
-// Enrutador principal de la API. En la fase 2 se agregan aquí
-// las rutas de mesas, horarios, reservas, platos y administración.
+// Enrutador principal de la API.
 import { Router } from 'express';
 import { pool } from '../db.js';
+import publico from './publico.js';
+import admin from './admin/index.js';
 
 const router = Router();
 
@@ -18,5 +19,8 @@ router.get('/salud', async (req, res) => {
   }
   res.json({ estado: 'ok', baseDeDatos });
 });
+
+router.use('/', publico);
+router.use('/admin', admin);
 
 export default router;
