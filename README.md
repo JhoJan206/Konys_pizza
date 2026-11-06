@@ -44,11 +44,12 @@ npm install
 cp .env.example .env    # completar DATABASE_URL y JWT_SECRET
 npm run db:preparar     # crea las tablas y carga los datos iniciales en Supabase
 npm run crear-admin     # crea el usuario del panel (pide la contraseña)
-npm run dev:api         # API en http://localhost:3001
-npm run dev             # Frontend en http://localhost:5173
+npm run dev             # Web completa (frontend + API) en http://localhost:5173
 ```
 
-El frontend reenvía las peticiones `/api` al servidor local.
+`npm run dev` levanta el frontend y la API de Express en el mismo servidor, conectados a la base de datos de Supabase indicada en `.env`. Los cambios en `src/` y en `server/` se aplican sin reiniciar.
+
+Si solo se necesita la API (por ejemplo para probarla con curl): `npm run dev:api`, en http://localhost:3001.
 
 ## API
 
