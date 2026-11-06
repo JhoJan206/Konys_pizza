@@ -1,0 +1,127 @@
+/* ==========================================================
+   Konys Pizza · estilos globales y tokens de marca
+   (tomados del diseño de alta fidelidad)
+   ========================================================== */
+
+:root {
+  /* Colores de marca */
+  --azul: #0E3A45;          /* azul petróleo del logo */
+  --naranja: #F28C28;       /* acento del logo */
+  --naranja-oscuro: #B35A08;
+  --crema: #FAF7F2;         /* fondo del sitio */
+  --gris-panel: #F4F5F6;    /* fondo del panel admin */
+  --blanco: #FFFFFF;
+  --texto-suave: #4F6271;
+  --texto-claro: #C9D6DF;
+  --borde: #E3E6E9;
+
+  /* Estados */
+  --libre: #1B6B43;
+  --libre-fondo: #E3F4EA;
+  --ocupado: #4A5763;
+  --ocupado-fondo: #ECEEF1;
+  --error: #B42318;
+  --error-fondo: #FDECEA;
+
+  /* Tipografía */
+  --fuente-titulos: 'Rubik', system-ui, sans-serif;
+  --fuente-texto: 'Inter', system-ui, sans-serif;
+
+  /* Formas */
+  --radio: 14px;
+  --sombra-poster: 6px 6px 0 var(--azul);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--crema);
+  color: var(--azul);
+  font-family: var(--fuente-texto);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--fuente-titulos);
+}
+
+a {
+  color: var(--naranja-oscuro);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Patrón de garabatos para las zonas azul petróleo */
+.garabatos {
+  background-color: var(--azul);
+  background-image: url('/img/garabatos.svg');
+  background-size: 340px 340px;
+}
+
+/* Texto grande decorativo solo con contorno */
+.contorno {
+  color: transparent;
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  -webkit-text-stroke: 2px rgba(242, 140, 40, 0.6);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Wordmark KONYS */
+.wordmark {
+  font-family: var(--fuente-titulos);
+  font-weight: 900;
+  letter-spacing: 0.02em;
+  color: var(--naranja);
+  text-decoration: none;
+}
+
+/* Botón principal naranja con "escalón" */
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 48px;
+  padding: 0 24px;
+  border: none;
+  border-radius: var(--radio);
+  background: var(--naranja);
+  color: var(--azul);
+  font-family: var(--fuente-titulos);
+  font-weight: 800;
+  font-size: 17px;
+  text-decoration: none;
+  box-shadow: 0 5px 0 var(--naranja-oscuro);
+}
+
+/* Solo para lectores de pantalla */
+.solo-lector {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
