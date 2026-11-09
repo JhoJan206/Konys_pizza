@@ -168,7 +168,7 @@ export default function ModalReserva({ mesa, onCerrar }) {
               Nombre completo
               <input
                 className="entrada" value={nombre}
-                onChange={(e) => { setNombre(e.target.value); setErrores({ ...errores, nombre: undefined }); }}
+                onChange={(e) => { setNombre(e.target.value.replace(/[^\p{L}\s'.-]/gu, '')); setErrores({ ...errores, nombre: undefined }); }}
                 autoComplete="name" maxLength={80} aria-invalid={Boolean(errores.nombre)}
               />
               {errores.nombre && <span className="texto-error"><Icono nombre="alerta" tam={16} />{errores.nombre}</span>}
@@ -176,8 +176,8 @@ export default function ModalReserva({ mesa, onCerrar }) {
             <label className="campo">
               <span>Teléfono / WhatsApp <span className="campo__opcional">(opcional)</span></span>
               <input
-                className="entrada" type="tel" value={contacto} onChange={(e) => setContacto(e.target.value)}
-                autoComplete="tel" maxLength={30} placeholder="300 000 0000"
+                className="entrada" type="tel" value={contacto} onChange={(e) => setContacto(e.target.value.replace(/\D/g, ''))}
+                inputMode="numeric" autoComplete="tel" maxLength={15} placeholder="300 000 0000"
               />
             </label>
             <div className="campo">
