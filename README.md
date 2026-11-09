@@ -2,6 +2,10 @@
 
 Aplicación web para que los clientes de **Konys Pizza** reserven mesa en línea viendo la disponibilidad en tiempo real, y para que el administrador gestione mesas, horarios, reservas y la carta.
 
+## pruebas en selenium
+
+Ejecutar: python pruebas/selenium/pruebas_e2e.py
+
 ## Datos del negocio
 
 | | |
