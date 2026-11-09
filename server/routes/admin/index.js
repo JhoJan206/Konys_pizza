@@ -1,5 +1,5 @@
 // Rutas del panel de administración (/api/admin/...).
-// El login es público; todo lo demás exige un JWT válido.
+// El login es público; todo lo demás exige la cookie de sesión con un JWT válido.
 import { Router } from 'express';
 import { requiereAdmin } from '../../middleware/auth.js';
 import auth from './auth.js';

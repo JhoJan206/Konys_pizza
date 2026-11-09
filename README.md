@@ -80,7 +80,7 @@ Si solo se necesita la API (por ejemplo para probarla con curl): `npm run dev:ap
 | GET/PATCH | `/api/admin/reservas` | Consulta con filtros y cambio de estado |
 | GET/POST/PUT/PATCH/DELETE | `/api/admin/platos` | Gestión de la carta |
 
-Las rutas `/api/admin/*` (excepto el login) requieren el encabezado `Authorization: Bearer <token>`.
+Las rutas `/api/admin/*` (excepto el login) requieren la cookie de sesión `konys_sesion`, que el servidor entrega al iniciar sesión (httpOnly, SameSite=Strict, Secure en producción). `POST /api/admin/logout` la borra.
 
 ## Variables de entorno
 
@@ -101,6 +101,8 @@ Nunca se suben al repositorio: en local van en `.env` (ignorado por git) y en pr
 ## Seguridad
 
 - Contraseñas del panel cifradas con bcryptjs; sesiones con JWT de 8 horas.
+- La sesión viaja en una cookie httpOnly: no se guarda nada en localStorage y el JavaScript de la página no puede leer el token.
+- Las rutas del panel se verifican en el servidor: escribir la URL de `/admin/...` sin sesión devuelve al inicio de sesión.
 - Row Level Security activado en Supabase: la API pública de Supabase no puede leer ni escribir; solo el backend accede a los datos.
 - Doble protección contra reservas duplicadas: bloqueo de la mesa dentro de una transacción e índice único en la base de datos.
 

@@ -1,29 +1,27 @@
 // Cliente HTTP para hablar con la API de Express (/api/...).
-// Si hay sesión de administrador, envía el JWT en cada petición.
-
-const CLAVE_TOKEN = 'konys_token';
+// La sesión del administrador vive en una cookie httpOnly que pone el servidor:
+// el navegador la envía sola y este código nunca la ve ni la guarda.
 
 export const sesion = {
-  obtener: () => localStorage.getItem(CLAVE_TOKEN),
-  guardar: (token) => localStorage.setItem(CLAVE_TOKEN, token),
-  cerrar: () => localStorage.removeItem(CLAVE_TOKEN),
+  // Pregunta al servidor si la cookie sigue vigente (lanza error si no)
+  comprobar: () => api('/admin/sesion'),
+  cerrar: () => api('/admin/logout', { metodo: 'POST' }).catch(() => {}),
 };
 
-export async function api(ruta, { metodo = 'GET', datos } = {}) {
-  const encabezados = { 'Content-Type': 'application/json' };
-  const token = sesion.obtener();
-  if (token) encabezados.Authorization = `Bearer ${token}`;
+// Rutas que pueden responder 401 sin que haya que redirigir al login
+const SIN_REDIRECCION = ['/admin/login', '/admin/sesion'];
 
+export async function api(ruta, { metodo = 'GET', datos } = {}) {
   const respuesta = await fetch(`/api${ruta}`, {
     method: metodo,
-    headers: encabezados,
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'same-origin',
     body: datos ? JSON.stringify(datos) : undefined,
   });
 
   const cuerpo = await respuesta.json().catch(() => ({}));
-  // Sesión de administrador vencida: se cierra y se vuelve al login
-  if (respuesta.status === 401 && token) {
-    sesion.cerrar();
+  // Sesión de administrador vencida en medio del panel: se vuelve al login
+  if (respuesta.status === 401 && ruta.startsWith('/admin/') && !SIN_REDIRECCION.includes(ruta)) {
     window.location.assign('/admin');
   }
   if (!respuesta.ok) {

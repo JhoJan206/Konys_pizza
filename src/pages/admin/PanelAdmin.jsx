@@ -22,12 +22,12 @@ export default function PanelAdmin({ seccion }) {
   const [listo, setListo] = useState(false);
 
   useEffect(() => {
-    if (!sesion.obtener()) { navegar('/admin'); return; }
-    api('/admin/sesion').then(() => setListo(true)).catch(() => navegar('/admin'));
+    // Nada se muestra hasta que el servidor confirma la cookie de sesión
+    sesion.comprobar().then(() => setListo(true)).catch(() => navegar('/admin'));
   }, []);
 
   const actual = SECCIONES.find((s) => s.clave === seccion) ?? SECCIONES[2];
-  const salir = () => { sesion.cerrar(); navegar('/admin'); };
+  const salir = async () => { await sesion.cerrar(); navegar('/admin'); };
 
   if (!listo) return <p className="cargando">Verificando sesión…</p>;
 

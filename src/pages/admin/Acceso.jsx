@@ -15,7 +15,7 @@ export default function Acceso() {
 
   // Si ya hay una sesión vigente, entra directo al panel
   useEffect(() => {
-    if (sesion.obtener()) api('/admin/sesion').then(() => navegar('/admin/reservas')).catch(() => {});
+    sesion.comprobar().then(() => navegar('/admin/reservas')).catch(() => {});
   }, []);
 
   const ingresar = async (e) => {
@@ -24,8 +24,8 @@ export default function Acceso() {
     setEnviando(true);
     setError('');
     try {
-      const { token } = await api('/admin/login', { metodo: 'POST', datos: { usuario, password } });
-      sesion.guardar(token);
+      // El servidor responde con la cookie de sesión; aquí no se guarda nada
+      await api('/admin/login', { metodo: 'POST', datos: { usuario, password } });
       navegar('/admin/reservas');
     } catch (err) {
       setError(err.message);
